@@ -70,7 +70,8 @@ def get_market_analysis(ticker, period_years):
 # --- 사이드바: 설정 ---
 with st.sidebar:
     st.header("1. 종목 설정")
-    ticker_symbol = st.text_input("티커 (Ticker)", value="고배당")
+    # [중요] 기본값은 'TSLY'로 해두되, 사용자가 지우고 다른 걸 쓸 수 있습니다.
+    ticker_symbol = st.text_input("티커 (Ticker)", value="TSLY")
     if st.button("🔄 데이터/추세 새로고침"):
         st.cache_data.clear()
 
@@ -256,6 +257,7 @@ try:
                 needed_asset_future = needed_shares * est_future_price
                 
                 monthly_yield_rate = (div_krw / price_krw) * 100 
+                # [수정 완료] 변수명과 문법 오류 해결
                 total_monthly_return_rate = (real_change_rate + monthly_yield_rate) / 100
                 
                 if total_monthly_return_rate == 0:
@@ -276,7 +278,7 @@ try:
                 <div style="text-align: center; padding: 25px; background-color: #fff1f2; border-radius: 15px; border: 2px solid #e11d48;">
                     <div style="color: #6b7280; font-size: 1.1rem; margin-bottom: 5px;">🔥 당장 이번 달부터</div>
                     <div style="color: #be123c; font-size: 2.5rem; font-weight: bold;">월 {monthly_savings_needed/10000:,.0f} 만원씩</div>
-                    <div style="color: #6b7280; font-size: 0.9rem;">고배당를 매수하고 배당을 재투자해야 합니다.</div>
+                    <div style="color: #6b7280; font-size: 0.9rem;">종목을 매수하고 배당을 재투자해야 합니다.</div>
                 </div>
                 """, unsafe_allow_html=True)
                 
