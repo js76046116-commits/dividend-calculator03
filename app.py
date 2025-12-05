@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 import numpy as np
 
 # --- 페이지 설정 ---
-st.set_page_config(page_title="TSLY 마스터 시뮬레이터", layout="wide")
+st.set_page_config(page_title="고배당 마스터 시뮬레이터", layout="wide")
 
 # --- 스타일링 ---
 st.markdown("""
@@ -17,7 +17,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("💸 TSLY 마스터 시뮬레이터 (Final Ver.)")
+st.title("💸 고배당 마스터 시뮬레이터 (Final Ver.)")
 st.markdown("데이터 기반 **미래 수익 예측**과 **목표 달성 플랜**을 제공합니다.")
 
 # --- 데이터 로딩 및 분석 함수 ---
@@ -70,7 +70,7 @@ def get_market_analysis(ticker, period_years):
 # --- 사이드바: 설정 ---
 with st.sidebar:
     st.header("1. 종목 설정")
-    ticker_symbol = st.text_input("티커 (Ticker)", value="TSLY")
+    ticker_symbol = st.text_input("티커 (Ticker)", value="고배당")
     if st.button("🔄 데이터/추세 새로고침"):
         st.cache_data.clear()
 
@@ -276,7 +276,7 @@ try:
                 <div style="text-align: center; padding: 25px; background-color: #fff1f2; border-radius: 15px; border: 2px solid #e11d48;">
                     <div style="color: #6b7280; font-size: 1.1rem; margin-bottom: 5px;">🔥 당장 이번 달부터</div>
                     <div style="color: #be123c; font-size: 2.5rem; font-weight: bold;">월 {monthly_savings_needed/10000:,.0f} 만원씩</div>
-                    <div style="color: #6b7280; font-size: 0.9rem;">TSLY를 매수하고 배당을 재투자해야 합니다.</div>
+                    <div style="color: #6b7280; font-size: 0.9rem;">고배당를 매수하고 배당을 재투자해야 합니다.</div>
                 </div>
                 """, unsafe_allow_html=True)
                 
